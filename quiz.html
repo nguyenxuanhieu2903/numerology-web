@@ -3,14 +3,141 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz — NUMEROLOGY</title>
+    <title data-i18n="siteTitle">Quiz — NUMEROLOGY</title>
+    <meta name="description" content="Khám phá bản thân qua 10 câu hỏi trắc nghiệm năng lượng thần số học hiện đại." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- CSS Layers -->
     <link rel="stylesheet" href="./src/css/base.css" />
+    <link rel="stylesheet" href="./src/css/layout.css" />
+    <link rel="stylesheet" href="./src/css/components.css" />
+    <link rel="stylesheet" href="./src/css/quiz.css" />
+    <link rel="stylesheet" href="./src/css/responsive.css" />
   </head>
   <body>
-    <div id="app">
-      <h1>Numerology Quiz</h1>
-    </div>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Logo -->
+        <a href="./index.html" class="brand-link" aria-label="Numerology Home">
+          <div class="brand-symbol">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E6E6E6" stroke-width="2">
+              <polygon points="12,2 22,12 12,22 2,12" />
+              <circle cx="12" cy="12" r="3" fill="#7B9669" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title" data-i18n="brandName">NUMEROLOGY</span>
+            <span class="brand-tagline" data-i18n="brandTagline">Discover Your Inner Energy</span>
+          </div>
+        </a>
+
+        <!-- Header Actions: Language Switcher & Exit -->
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Language Switcher">
+            <button type="button" class="lang-btn is-active" data-lang="vi" aria-label="Tiếng Việt">VI</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+          </div>
+          <a href="./index.html" class="btn btn-outline btn-sm" data-i18n="quizBackHome">
+            Trang chủ
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Quiz Main Section -->
+    <main class="quiz-main">
+      <div class="container container-narrow">
+        <div class="quiz-card">
+          <!-- Meta Bar: Back Button, Counter, Percent -->
+          <div class="quiz-meta-bar">
+            <a href="./index.html" class="quiz-back-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span data-i18n="quizBackHome">Trang chủ</span>
+            </a>
+            <div class="quiz-counter-badge" id="quiz-counter-text">
+              Câu hỏi 01 trên 10
+            </div>
+          </div>
+
+          <!-- Animated Progress Bar -->
+          <div class="quiz-progress-wrapper">
+            <div class="progress-container">
+              <div class="progress-header">
+                <span data-i18n="quizProgressLabel">Tiến trình</span>
+                <span id="quiz-percent-text">10%</span>
+              </div>
+              <div class="progress-track" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-fill" id="quiz-progress-fill" style="width: 10%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Question Stage (jQuery Rendered & Animated) -->
+          <div class="question-stage" id="question-stage">
+            <!-- Will be populated dynamically by quiz-ui.js -->
+          </div>
+
+          <!-- Warning Alert if trying to advance without answer -->
+          <div class="alert-banner alert-warning" id="quiz-alert-warning" style="display: none;" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span data-i18n="quizSelectWarning">Vui lòng chọn một đáp án phù hợp trước khi tiếp tục.</span>
+          </div>
+
+          <!-- Quiz Controls Footer -->
+          <div class="quiz-controls">
+            <button type="button" class="btn btn-ghost" id="btn-prev" disabled>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span data-i18n="quizBtnPrev">Câu Trước</span>
+            </button>
+
+            <div class="quiz-controls-right">
+              <button type="button" class="btn btn-primary" id="btn-next">
+                <span data-i18n="quizBtnNext">Câu Tiếp Theo</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+
+              <button type="button" class="btn btn-primary" id="btn-submit" style="display: none;">
+                <span data-i18n="quizBtnSubmit">Xem Kết Quả Ngay</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footerCopyright">
+            © 2026 NUMEROLOGY. Dự án môn Lập trình Web. Thiết kế & Phát triển bởi Nhóm 02.
+          </p>
+          <div class="footer-meta-tag">
+            Session Encapsulated • Client-side Scoring
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Entry Point -->
     <script type="module" src="./src/js/quiz.js"></script>
   </body>
 </html>

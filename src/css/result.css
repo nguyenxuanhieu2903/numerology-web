@@ -1,0 +1,342 @@
+/* ==========================================================================
+   NUMEROLOGY — Result Page Stylesheet
+   Hero Archetype Dossier, Composite Tie Card, Narrative Panels,
+   Energy Distribution Matrix, Action Buttons, Empty State
+   ========================================================================== */
+
+.result-main {
+  padding: var(--space-3xl) 0 var(--space-4xl);
+  flex-grow: 1;
+}
+
+/* Empty State / Guard */
+.empty-state-card {
+  text-align: center;
+  max-width: 600px;
+  margin: var(--space-3xl) auto;
+  padding: var(--space-3xl) var(--space-2xl);
+  background-color: var(--color-surface-pure);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-mist-jade);
+  box-shadow: var(--shadow-card);
+}
+
+.empty-state-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background-color: rgba(186, 200, 177, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-lg);
+  color: var(--color-slate-jade);
+}
+
+.empty-state-title {
+  margin-bottom: var(--space-md);
+}
+
+.empty-state-desc {
+  font-size: 1rem;
+  color: #556650;
+  line-height: 1.6;
+  margin-bottom: var(--space-2xl);
+}
+
+/* Result Presentation Wrapper */
+.result-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+}
+
+/* Tie Banner */
+.tie-banner {
+  background: linear-gradient(135deg, rgba(186, 200, 177, 0.35) 0%, rgba(123, 150, 105, 0.2) 100%);
+  border: 1.5px solid var(--color-primary-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.tie-banner-badge {
+  margin-bottom: var(--space-xs);
+}
+
+.tie-banner-title {
+  font-size: 1.5rem;
+  color: var(--color-dark-jade);
+  margin-bottom: var(--space-xs);
+}
+
+.tie-banner-desc {
+  font-size: 0.98rem;
+  color: #4A5A44;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Hero Dossier Card */
+.result-hero-card {
+  background-color: var(--color-surface-pure);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(186, 200, 177, 0.7);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-3xl);
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.result-visual-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-image-box {
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1/1;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-subtle);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-subtle);
+}
+
+.result-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.result-info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-number-tag {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-primary-accent);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2xs);
+}
+
+.result-name-heading {
+  font-size: clamp(2rem, 3.5vw, 2.7rem);
+  line-height: 1.15;
+  color: var(--color-dark-jade);
+  margin-bottom: var(--space-xs);
+}
+
+.result-title-subheading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-slate-jade);
+  margin-bottom: var(--space-md);
+}
+
+.result-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-dark-jade);
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-bg-subtle);
+  border-left: 3px solid var(--color-primary-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: var(--space-lg);
+}
+
+.result-description {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #4A5A44;
+  margin-bottom: 0;
+}
+
+/* 3-Column Narrative Section */
+.result-narrative-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+.narrative-card {
+  background-color: var(--color-surface-pure);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(186, 200, 177, 0.6);
+  padding: var(--space-2xl) var(--space-xl);
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+}
+
+.narrative-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(186, 200, 177, 0.35);
+}
+
+.narrative-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: rgba(186, 200, 177, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-accent);
+}
+
+.narrative-title {
+  font-size: 1.15rem;
+  color: var(--color-dark-jade);
+}
+
+.narrative-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.narrative-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: #4A5A44;
+}
+
+.narrative-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-primary-accent);
+  font-size: 0.85rem;
+}
+
+/* Energy Distribution Matrix */
+.matrix-card {
+  background-color: var(--color-surface-pure);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(186, 200, 177, 0.7);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-2xl) var(--space-3xl);
+}
+
+.matrix-header {
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+}
+
+.matrix-title {
+  font-size: 1.6rem;
+  margin-bottom: var(--space-xs);
+}
+
+.matrix-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-slate-jade);
+}
+
+.matrix-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.matrix-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.matrix-row-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.matrix-row-name {
+  color: var(--color-dark-jade);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.matrix-row-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  color: var(--color-slate-jade);
+}
+
+.matrix-percentage-pill {
+  background-color: rgba(186, 200, 177, 0.35);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  color: var(--color-dark-jade);
+  font-size: 0.85rem;
+}
+
+.matrix-track {
+  width: 100%;
+  height: 14px;
+  background-color: rgba(186, 200, 177, 0.3);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.matrix-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: var(--radius-full);
+  transition: width 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.matrix-bar-01 {
+  background: linear-gradient(90deg, #6C8480 0%, #7B9669 100%);
+}
+
+.matrix-bar-02 {
+  background: linear-gradient(90deg, #BAC8B1 0%, #6C8480 100%);
+}
+
+.matrix-bar-03 {
+  background: linear-gradient(90deg, #98B084 0%, #7B9669 100%);
+}
+
+.matrix-bar-04 {
+  background: linear-gradient(90deg, #6C8480 0%, #404E3B 100%);
+}
+
+/* Result Action Bar */
+.result-actions-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  padding: var(--space-xl) 0;
+}

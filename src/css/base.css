@@ -1,17 +1,153 @@
-/* Base Stylesheet - Jade Pebble Morning Design Tokens */
+/* ==========================================================================
+   NUMEROLOGY — Base Stylesheet
+   Theme: Jade Pebble Morning (Sage / Muted Jade, Soft Pebble, Slate Jade,
+   Mist Jade, Deep Forest).
+   Style: Premium Editorial • Modern Mystical • Organic Minimalism
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
 :root {
-  --color-primary-accent: #7B9669;
-  --color-bg-light: #E6E6E6;
-  --color-slate-jade: #6C8480;
-  --color-mist-jade: #BAC8B1;
-  --color-dark-jade: #404E3B;
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Color Palette — Jade Pebble Morning */
+  --color-primary-accent: #7B9669;   /* Sage / Muted Jade (Primary Accent) */
+  --color-accent-hover: #678056;     /* Darker sage for hover */
+  --color-bg-base: #E6E6E6;          /* Soft Pebble Off-White */
+  --color-bg-subtle: #F4F6F2;        /* Pebble Light Tint for Card / Surface */
+  --color-surface-pure: #FFFFFF;     /* Pure surface card */
+  --color-slate-jade: #6C8480;       /* Slate Jade (Secondary text & accents) */
+  --color-mist-jade: #BAC8B1;        /* Mist Jade / Pale Sage (Borders & soft fills) */
+  --color-dark-jade: #404E3B;        /* Deep Forest / Dark Jade (Primary text & contrast) */
+  --color-dark-surface: #2D3729;     /* Deep footer / dark cards */
+
+  /* Semantic Feedback Tokens */
+  --color-error: #A34E45;
+  --color-error-bg: #FBEFED;
+  --color-success: #537E56;
+  --color-success-bg: #EDF5EE;
+
+  /* Typography */
+  --font-display: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing Scale */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadows (Soft & Organic) */
+  --shadow-subtle: 0 2px 8px rgba(64, 78, 59, 0.05);
+  --shadow-card: 0 8px 24px -4px rgba(64, 78, 59, 0.08);
+  --shadow-elevated: 0 16px 36px -6px rgba(64, 78, 59, 0.12);
+  --shadow-glow: 0 0 24px rgba(123, 150, 105, 0.25);
+
+  /* Transitions */
+  --transition-fast: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 260ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* CSS Reset & Defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  margin: 0;
-  font-family: var(--font-sans);
-  background-color: var(--color-bg-light);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--color-dark-jade);
+  background-color: var(--color-bg-base);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(186, 200, 177, 0.35) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(123, 150, 105, 0.2) 0%, transparent 45%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--color-dark-jade);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+}
+
+h4 {
+  font-size: 1.15rem;
+}
+
+p {
+  color: var(--color-dark-jade);
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--color-dark-jade);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-accent);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Accessible Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--color-primary-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }

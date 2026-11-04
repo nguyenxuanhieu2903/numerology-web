@@ -3,14 +3,254 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Result — NUMEROLOGY</title>
+    <title data-i18n="siteTitle">Result — NUMEROLOGY</title>
+    <meta name="description" content="Khám phá bản đồ năng lượng nội tại cá nhân hóa của bạn trên Numerology." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- CSS Layers -->
     <link rel="stylesheet" href="./src/css/base.css" />
+    <link rel="stylesheet" href="./src/css/layout.css" />
+    <link rel="stylesheet" href="./src/css/components.css" />
+    <link rel="stylesheet" href="./src/css/result.css" />
+    <link rel="stylesheet" href="./src/css/responsive.css" />
   </head>
   <body>
-    <div id="app">
-      <h1>Numerology Result</h1>
-    </div>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Logo -->
+        <a href="./index.html" class="brand-link" aria-label="Numerology Home">
+          <div class="brand-symbol">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E6E6E6" stroke-width="2">
+              <polygon points="12,2 22,12 12,22 2,12" />
+              <circle cx="12" cy="12" r="3" fill="#7B9669" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title" data-i18n="brandName">NUMEROLOGY</span>
+            <span class="brand-tagline" data-i18n="brandTagline">Discover Your Inner Energy</span>
+          </div>
+        </a>
+
+        <!-- Header Actions: Language Switcher & Home Link -->
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Language Switcher">
+            <button type="button" class="lang-btn is-active" data-lang="vi" aria-label="Tiếng Việt">VI</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+          </div>
+          <a href="./index.html" class="btn btn-outline btn-sm" data-i18n="resultBackHome">
+            Về Trang Chủ
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="result-main">
+      <div class="container">
+        <!-- Guard: Empty State if accessed directly without taking quiz -->
+        <div id="result-empty-state" class="empty-state-card" style="display: none;">
+          <div class="empty-state-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <h2 class="empty-state-title" data-i18n="emptyStateTitle">Chưa Có Dữ Liệu Kết Quả</h2>
+          <p class="empty-state-desc" data-i18n="emptyStateDesc">
+            Có vẻ như bạn vừa truy cập trực tiếp vào trang kết quả mà chưa hoàn thành bài trắc nghiệm 10 câu hỏi. Hãy bắt đầu ngay để khám phá nguồn năng lượng độc bản của bạn!
+          </p>
+          <a href="./quiz.html" class="btn btn-primary btn-lg" data-i18n="emptyStateCta">
+            Bắt Đầu Làm Bài Ngay
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Valid Result Content Container -->
+        <div id="result-content-container" class="result-wrapper">
+          <!-- Special Harmonic Tie Banner (populated if tie) -->
+          <div id="result-tie-container"></div>
+
+          <!-- Hero Archetype Dossier Card -->
+          <section class="result-hero-card" aria-label="Dominant Archetype Profile">
+            <div class="result-visual-col">
+              <div class="result-image-box">
+                <img id="result-archetype-img" src="./assets/images/archetype-01-leader.svg" alt="Dominant Energy Archetype" />
+              </div>
+            </div>
+
+            <div class="result-info-col">
+              <div class="badge badge-accent" style="align-self: flex-start; margin-bottom: var(--space-xs);" data-i18n="resultDominantWord">
+                Nhóm Năng Lượng Chiếm Ưu Thế
+              </div>
+              <div class="result-number-tag">
+                ARCHETYPE <span id="result-archetype-number">01</span>
+              </div>
+              <h1 class="result-name-heading" id="result-archetype-name">The Leader</h1>
+              <div class="result-title-subheading" id="result-archetype-title">Người Tiên Phong Quyết Đoán</div>
+              <div class="result-quote" id="result-archetype-quote">
+                “Khí chất dẫn lối sinh ra từ ý chí làm chủ vận mệnh và lòng dũng cảm mở đường.”
+              </div>
+              <p class="result-description" id="result-archetype-desc"></p>
+            </div>
+          </section>
+
+          <!-- 3-Column Narrative Section: Strengths, Areas, Advice -->
+          <section class="result-narrative-grid" aria-label="Detailed Narrative Insights">
+            <!-- Strengths -->
+            <div class="narrative-card">
+              <div class="narrative-header">
+                <div class="narrative-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <h3 class="narrative-title" data-i18n="resultStrengthsTitle">Điểm Mạnh Nổi Bật</h3>
+              </div>
+              <ul class="narrative-list" id="list-strengths"></ul>
+            </div>
+
+            <!-- Areas for Evolution -->
+            <div class="narrative-card">
+              <div class="narrative-header">
+                <div class="narrative-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 14 14"></polyline>
+                  </svg>
+                </div>
+                <h3 class="narrative-title" data-i18n="resultAreasTitle">Điểm Cần Chuyển Hóa</h3>
+              </div>
+              <ul class="narrative-list" id="list-areas"></ul>
+            </div>
+
+            <!-- Path of Cultivation -->
+            <div class="narrative-card">
+              <div class="narrative-header">
+                <div class="narrative-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                  </svg>
+                </div>
+                <h3 class="narrative-title" data-i18n="resultAdviceTitle">Định Hướng Phát Triển</h3>
+              </div>
+              <ul class="narrative-list" id="list-advice"></ul>
+            </div>
+          </section>
+
+          <!-- Energy Distribution Matrix -->
+          <section class="matrix-card" aria-label="Energy Distribution Matrix">
+            <div class="matrix-header">
+              <h2 class="matrix-title" data-i18n="resultMatrixTitle">Biểu Đồ Phân Bố 4 Trường Năng Lượng</h2>
+              <p class="matrix-subtitle" data-i18n="resultMatrixSubtitle">
+                Tỷ lệ phần trăm phản ánh mức độ hiện diện của từng năng lượng trong 10 câu trả lời của bạn.
+              </p>
+            </div>
+
+            <div class="matrix-bars">
+              <!-- Row 01 -->
+              <div class="matrix-row">
+                <div class="matrix-row-meta">
+                  <span class="matrix-row-name" id="matrix-name-01">01 — The Leader</span>
+                  <div class="matrix-row-stats">
+                    <span id="matrix-score-01">0 / 10</span>
+                    <span class="matrix-percentage-pill" id="matrix-pct-01">0%</span>
+                  </div>
+                </div>
+                <div class="matrix-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  <div class="matrix-bar-fill matrix-bar-01" id="matrix-bar-01" style="width: 0%;"></div>
+                </div>
+              </div>
+
+              <!-- Row 02 -->
+              <div class="matrix-row">
+                <div class="matrix-row-meta">
+                  <span class="matrix-row-name" id="matrix-name-02">02 — The Harmonizer</span>
+                  <div class="matrix-row-stats">
+                    <span id="matrix-score-02">0 / 10</span>
+                    <span class="matrix-percentage-pill" id="matrix-pct-02">0%</span>
+                  </div>
+                </div>
+                <div class="matrix-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  <div class="matrix-bar-fill matrix-bar-02" id="matrix-bar-02" style="width: 0%;"></div>
+                </div>
+              </div>
+
+              <!-- Row 03 -->
+              <div class="matrix-row">
+                <div class="matrix-row-meta">
+                  <span class="matrix-row-name" id="matrix-name-03">03 — The Creator</span>
+                  <div class="matrix-row-stats">
+                    <span id="matrix-score-03">0 / 10</span>
+                    <span class="matrix-percentage-pill" id="matrix-pct-03">0%</span>
+                  </div>
+                </div>
+                <div class="matrix-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  <div class="matrix-bar-fill matrix-bar-03" id="matrix-bar-03" style="width: 0%;"></div>
+                </div>
+              </div>
+
+              <!-- Row 04 -->
+              <div class="matrix-row">
+                <div class="matrix-row-meta">
+                  <span class="matrix-row-name" id="matrix-name-04">04 — The Builder</span>
+                  <div class="matrix-row-stats">
+                    <span id="matrix-score-04">0 / 10</span>
+                    <span class="matrix-percentage-pill" id="matrix-pct-04">0%</span>
+                  </div>
+                </div>
+                <div class="matrix-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                  <div class="matrix-bar-fill matrix-bar-04" id="matrix-bar-04" style="width: 0%;"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Result Action Bar -->
+          <div class="result-actions-bar">
+            <button type="button" class="btn btn-primary btn-lg" id="btn-share-result">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span data-i18n="resultBtnShare">Chia Sẻ Kết Quả</span>
+            </button>
+
+            <button type="button" class="btn btn-outline btn-lg" id="btn-retake-quiz">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+              <span data-i18n="resultBtnRetake">Làm Lại Bài Trắc Nghiệm</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footerCopyright">
+            © 2026 NUMEROLOGY. Dự án môn Lập trình Web. Thiết kế & Phát triển bởi Nhóm 02.
+          </p>
+          <div class="footer-meta-tag">
+            Personal Energy Report • Safe Local Session
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Entry Point -->
     <script type="module" src="./src/js/result.js"></script>
   </body>
 </html>

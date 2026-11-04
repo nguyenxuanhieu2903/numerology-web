@@ -3,14 +3,330 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NUMEROLOGY — Discover Your Inner Energy</title>
+    <title data-i18n="siteTitle">NUMEROLOGY — Khám Phá Năng Lượng Nội Tại</title>
+    <meta name="description" content="Khám phá bản thân qua 10 câu hỏi trắc nghiệm năng lượng thần số học hiện đại. Nhận hồ sơ tính cách, điểm mạnh và định hướng phát triển cá nhân hóa." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- CSS Layers -->
     <link rel="stylesheet" href="./src/css/base.css" />
+    <link rel="stylesheet" href="./src/css/layout.css" />
+    <link rel="stylesheet" href="./src/css/components.css" />
+    <link rel="stylesheet" href="./src/css/landing.css" />
+    <link rel="stylesheet" href="./src/css/responsive.css" />
   </head>
   <body>
-    <div id="app">
-      <h1>Numerology Landing</h1>
-    </div>
+    <!-- Site Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Logo -->
+        <a href="./index.html" class="brand-link" aria-label="Numerology Home">
+          <div class="brand-symbol">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#E6E6E6" stroke-width="2">
+              <polygon points="12,2 22,12 12,22 2,12" />
+              <circle cx="12" cy="12" r="3" fill="#7B9669" />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title" data-i18n="brandName">NUMEROLOGY</span>
+            <span class="brand-tagline" data-i18n="brandTagline">Discover Your Inner Energy</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="site-nav" aria-label="Main Navigation">
+          <ul class="nav-list">
+            <li><a href="./index.html" class="nav-link is-active" data-i18n="navHome">Trang chủ</a></li>
+            <li><a href="#archetypes" class="nav-link" data-i18n="navArchetypes">4 Nhóm Năng Lượng</a></li>
+            <li><a href="#how-it-works" class="nav-link" data-i18n="navHowItWorks">Cách Hoạt Động</a></li>
+          </ul>
+        </nav>
+
+        <!-- Actions & Language Switcher -->
+        <div class="header-actions">
+          <div class="lang-switch" role="group" aria-label="Language Switcher">
+            <button type="button" class="lang-btn is-active" data-lang="vi" aria-label="Tiếng Việt">VI</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+          </div>
+          <a href="./quiz.html" class="btn btn-primary btn-sm" data-i18n="navTakeQuiz">Khám Phá Ngay</a>
+          <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div class="mobile-drawer" id="mobile-drawer">
+        <ul class="mobile-nav-list">
+          <li><a href="./index.html" class="mobile-nav-link" data-i18n="navHome">Trang chủ</a></li>
+          <li><a href="#archetypes" class="mobile-nav-link" data-i18n="navArchetypes">4 Nhóm Năng Lượng</a></li>
+          <li><a href="#how-it-works" class="mobile-nav-link" data-i18n="navHowItWorks">Cách Hoạt Động</a></li>
+          <li><a href="./quiz.html" class="mobile-nav-link" data-i18n="navTakeQuiz">Khám Phá Ngay</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-content reveal-item">
+            <div class="badge badge-accent hero-badge" data-i18n="heroBadge">
+              Trải nghiệm khám phá bản thân • Lấy cảm hứng từ Thần Số Học
+            </div>
+            <h1 class="hero-title" data-i18n="heroTitle">
+              Lắng Nghe Tiếng Nói Của Năng Lượng Nội Tại
+            </h1>
+            <p class="hero-subtitle" data-i18n="heroSubtitle">
+              Mỗi lựa chọn hàng ngày của bạn đều mang tần số của một nhóm năng lượng tiềm ẩn. Trả lời 10 câu hỏi ngắn để giải mã bản sắc độc bản và chiếc la bàn nội tâm của bạn.
+            </p>
+            <div class="hero-actions">
+              <a href="./quiz.html" class="btn btn-primary btn-lg" data-i18n="heroCtaPrimary">
+                Bắt Đầu Trắc Nghiệm
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="#archetypes" class="btn btn-outline" data-i18n="heroCtaSecondary">
+                Tìm Hiểu 4 Nhóm Năng Lượng
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span data-i18n="heroStatQuestions">10 Câu Hỏi Trực Giác</span>
+              </div>
+              <div class="stat-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                <span data-i18n="heroStatArchetypes">4 Trường Năng Lượng</span>
+              </div>
+              <div class="stat-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span data-i18n="heroStatDuration">Chỉ 3 Phút Hoàn Thành</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual Mandala -->
+          <div class="hero-visual reveal-item">
+            <div class="hero-mandala-wrapper">
+              <img
+                src="./assets/images/hero-energy-mandala.svg"
+                alt="Numerology Energy Mandala"
+                class="hero-mandala-img"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Archetypes Showcase Section -->
+      <section id="archetypes" class="archetypes-section">
+        <div class="container">
+          <div class="section-header reveal-item">
+            <div class="badge badge-sage section-badge" data-i18n="archetypesSectionBadge">
+              Hệ thống bản đồ năng lượng
+            </div>
+            <h2 class="section-title" data-i18n="archetypesSectionTitle">
+              Bốn Bản Sắc Năng Lượng Cốt Lõi
+            </h2>
+            <p class="section-subtitle" data-i18n="archetypesSectionSubtitle">
+              Mỗi người chúng ta là một vũ trụ thu nhỏ, nơi bốn dòng năng lượng cùng tồn tại và định hình nhân sinh quan của bạn.
+            </p>
+          </div>
+
+          <div class="archetypes-grid">
+            <!-- 01 The Leader -->
+            <article class="archetype-card reveal-item">
+              <div class="archetype-card-img-wrap">
+                <img src="./assets/images/archetype-01-leader.svg" alt="01 The Leader Archetype" loading="lazy" />
+              </div>
+              <div class="archetype-card-num">ARCHETYPE 01</div>
+              <h3 class="archetype-card-name" data-i18n="archetype01Name">The Leader</h3>
+              <p class="archetype-card-desc" data-i18n="archetype01Desc">
+                Khát vọng tiên phong, quyết đoán, bản lĩnh làm chủ vận mệnh và định hướng tập thể.
+              </p>
+              <div class="badge badge-sage">Quyết Đoán • Tiên Phong</div>
+            </article>
+
+            <!-- 02 The Harmonizer -->
+            <article class="archetype-card reveal-item">
+              <div class="archetype-card-img-wrap">
+                <img src="./assets/images/archetype-02-harmonizer.svg" alt="02 The Harmonizer Archetype" loading="lazy" />
+              </div>
+              <div class="archetype-card-num">ARCHETYPE 02</div>
+              <h3 class="archetype-card-name" data-i18n="archetype02Name">The Harmonizer</h3>
+              <p class="archetype-card-desc" data-i18n="archetype02Desc">
+                Đồng cảm sâu sắc, khả năng lắng nghe và kết nối trái tim để tạo dựng bình yên.
+              </p>
+              <div class="badge badge-sage">Thấu Cảm • Hòa Hợp</div>
+            </article>
+
+            <!-- 03 The Creator -->
+            <article class="archetype-card reveal-item">
+              <div class="archetype-card-img-wrap">
+                <img src="./assets/images/archetype-03-creator.svg" alt="03 The Creator Archetype" loading="lazy" />
+              </div>
+              <div class="archetype-card-num">ARCHETYPE 03</div>
+              <h3 class="archetype-card-name" data-i18n="archetype03Name">The Creator</h3>
+              <p class="archetype-card-desc" data-i18n="archetype03Desc">
+                Trí tưởng tượng bất tận, nguồn cảm hứng dồi dào và khát khao biểu đạt độc bản.
+              </p>
+              <div class="badge badge-sage">Sáng Tạo • Linh Hoạt</div>
+            </article>
+
+            <!-- 04 The Builder -->
+            <article class="archetype-card reveal-item">
+              <div class="archetype-card-img-wrap">
+                <img src="./assets/images/archetype-04-builder.svg" alt="04 The Builder Archetype" loading="lazy" />
+              </div>
+              <div class="archetype-card-num">ARCHETYPE 04</div>
+              <h3 class="archetype-card-name" data-i18n="archetype04Name">The Builder</h3>
+              <p class="archetype-card-desc" data-i18n="archetype04Desc">
+                Kỷ luật sắt đá, thực tế, kiên nhẫn xây dựng những nền móng vững bền cùng thời gian.
+              </p>
+              <div class="badge badge-sage">Kỷ Luật • Vững Chãi</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section id="how-it-works" class="how-section">
+        <div class="container">
+          <div class="section-header reveal-item">
+            <div class="badge badge-accent section-badge" data-i18n="howSectionBadge">
+              Quy trình đơn giản
+            </div>
+            <h2 class="section-title" data-i18n="howSectionTitle">
+              Cách Trải Nghiệm Hoạt Động
+            </h2>
+            <p class="section-subtitle" data-i18n="howSectionSubtitle">
+              Ba bước nhẹ nhàng để bạn kết nối và thấu hiểu chính mình hơn bao giờ hết.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card reveal-item">
+              <div class="step-number" data-i18n="step1Number">01</div>
+              <h3 class="step-title" data-i18n="step1Title">Lắng Nghe Trực Giác</h3>
+              <p class="step-desc" data-i18n="step1Desc">
+                Trả lời lần lượt 10 câu hỏi bằng cảm nhận tự nhiên và chân thật nhất của bạn, không có đáp án đúng hay sai.
+              </p>
+            </div>
+
+            <div class="step-card reveal-item">
+              <div class="step-number" data-i18n="step2Number">02</div>
+              <h3 class="step-title" data-i18n="step2Title">Thuật Toán Tính Toán</h3>
+              <p class="step-desc" data-i18n="step2Desc">
+                Scoring Engine tổng hợp từng lựa chọn, phân tích tỷ trọng và xử lý các trường hợp đồng điệu năng lượng chuẩn xác.
+              </p>
+            </div>
+
+            <div class="step-card reveal-item">
+              <div class="step-number" data-i18n="step3Number">03</div>
+              <h3 class="step-title" data-i18n="step3Title">Nhận Bản Đồ Cá Nhân Hóa</h3>
+              <p class="step-desc" data-i18n="step3Desc">
+                Mở khóa hồ sơ năng lượng chi tiết: Điểm mạnh, điểm cần cải thiện, biểu đồ tỷ lệ và lời khuyên phát triển.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom CTA inside How It Works -->
+          <div style="text-align: center; margin-top: var(--space-3xl);" class="reveal-item">
+            <a href="./quiz.html" class="btn btn-primary btn-lg" data-i18n="heroCtaPrimary">
+              Bắt Đầu Trắc Nghiệm Ngay
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pedagogical Disclaimer Section -->
+      <section class="disclaimer-section">
+        <div class="container">
+          <div class="disclaimer-card reveal-item">
+            <h4 class="disclaimer-title" data-i18n="disclaimerTitle">Thông điệp từ dự án</h4>
+            <p class="disclaimer-text" data-i18n="disclaimerText">
+              Website là sản phẩm trải nghiệm giải trí và khám phá bản thân phục vụ môn Lập trình Web. Nội dung lấy cảm hứng từ biểu tượng năng lượng thần số học, không phải công cụ đánh giá tâm lý hay khoa học chính thống.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand-link">
+              <div class="brand-symbol">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#E6E6E6" stroke-width="2">
+                  <polygon points="12,2 22,12 12,22 2,12" />
+                  <circle cx="12" cy="12" r="3" fill="#7B9669" />
+                </svg>
+              </div>
+              <div class="brand-text">
+                <span class="brand-title" data-i18n="brandName">NUMEROLOGY</span>
+                <span class="brand-tagline" data-i18n="brandTagline">Discover Your Inner Energy</span>
+              </div>
+            </div>
+            <p class="footer-desc" data-i18n="footerAbout">
+              NUMEROLOGY là không gian trải nghiệm tĩnh hiện đại, được xây dựng với tinh thần thẩm mỹ Organic Minimalism và hiệu năng tối ưu trên nền tảng GitHub Pages.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-heading" data-i18n="footerQuickLinks">Điều Hướng</h4>
+            <ul class="footer-links">
+              <li><a href="./index.html" data-i18n="navHome">Trang chủ</a></li>
+              <li><a href="#archetypes" data-i18n="navArchetypes">4 Nhóm Năng Lượng</a></li>
+              <li><a href="#how-it-works" data-i18n="navHowItWorks">Cách Hoạt Động</a></li>
+              <li><a href="./quiz.html" data-i18n="navTakeQuiz">Làm Bài Trắc Nghiệm</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-heading" data-i18n="footerResources">Công Nghệ</h4>
+            <ul class="footer-links">
+              <li><a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer">Vite 5.x MPA</a></li>
+              <li><a href="https://jquery.com/" target="_blank" rel="noopener noreferrer">jQuery 3.7.1</a></li>
+              <li><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a></li>
+              <li><a href="https://docs.github.com/en/actions" target="_blank" rel="noopener noreferrer">GitHub Actions CI/CD</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright" data-i18n="footerCopyright">
+            © 2026 NUMEROLOGY. Dự án môn Lập trình Web. Thiết kế & Phát triển bởi Nhóm 02.
+          </p>
+          <div class="footer-meta-tag">
+            HTML5 • CSS3 • ES6+ • jQuery • Vite
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript Entry Point -->
     <script type="module" src="./src/js/landing.js"></script>
   </body>
 </html>

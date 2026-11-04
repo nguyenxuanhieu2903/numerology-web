@@ -1,5 +1,15 @@
+/**
+ * NUMEROLOGY — Quiz Page Entry Script
+ */
+
 import $ from 'jquery';
+import { initLanguage } from './utils/language.js';
+import { initQuizUI } from './ui/quiz-ui.js';
 
 $(function () {
-  console.log('Numerology Quiz page initialized with jQuery', $.fn.jquery);
+  // Initialize centralized i18n
+  initLanguage();
+
+  // Initialize quiz engine & UI
+  initQuizUI();
 });

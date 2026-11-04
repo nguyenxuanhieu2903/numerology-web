@@ -1,5 +1,15 @@
+/**
+ * NUMEROLOGY — Landing Page Entry Script
+ */
+
 import $ from 'jquery';
+import { initLanguage } from './utils/language.js';
+import { initLandingUI } from './ui/landing.js';
 
 $(function () {
-  console.log('Numerology Landing page initialized with jQuery', $.fn.jquery);
+  // Initialize centralized i18n
+  initLanguage();
+
+  // Initialize landing interactions and scroll animations
+  initLandingUI();
 });
