@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <defs>
+    <radialGradient id="heroCenterGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#BAC8B1" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#7B9669" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#404E3B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background Glow -->
+  <circle cx="250" cy="250" r="230" fill="url(#heroCenterGlow)"/>
+  <!-- Concentric Mystical Rings -->
+  <circle cx="250" cy="250" r="220" stroke="#404E3B" stroke-width="1" stroke-opacity="0.25"/>
+  <circle cx="250" cy="250" r="200" stroke="#7B9669" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <circle cx="250" cy="250" r="160" stroke="#6C8480" stroke-width="1" stroke-opacity="0.4"/>
+  <circle cx="250" cy="250" r="120" stroke="#404E3B" stroke-width="1.5" stroke-dasharray="3 3"/>
+  
+  <!-- Outer Archetype Anchors (Top: 01, Right: 02, Bottom: 04, Left: 03) -->
+  <!-- Top 01 Sun -->
+  <g transform="translate(250, 50)">
+    <circle cx="0" cy="0" r="16" fill="#F4F6F2" stroke="#7B9669" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" font-family="'Cinzel', serif" font-weight="700" font-size="11" fill="#404E3B">01</text>
+  </g>
+  <!-- Right 02 Harmonizer -->
+  <g transform="translate(450, 250)">
+    <circle cx="0" cy="0" r="16" fill="#F4F6F2" stroke="#6C8480" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" font-family="'Cinzel', serif" font-weight="700" font-size="11" fill="#404E3B">02</text>
+  </g>
+  <!-- Bottom 04 Builder -->
+  <g transform="translate(250, 450)">
+    <circle cx="0" cy="0" r="16" fill="#F4F6F2" stroke="#404E3B" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" font-family="'Cinzel', serif" font-weight="700" font-size="11" fill="#404E3B">04</text>
+  </g>
+  <!-- Left 03 Creator -->
+  <g transform="translate(50, 250)">
+    <circle cx="0" cy="0" r="16" fill="#F4F6F2" stroke="#7B9669" stroke-width="2"/>
+    <text x="0" y="5" text-anchor="middle" font-family="'Cinzel', serif" font-weight="700" font-size="11" fill="#404E3B">03</text>
+  </g>
+
+  <!-- Connecting Sacred Geometry -->
+  <polygon points="250,85 415,250 250,415 85,250" stroke="#BAC8B1" stroke-width="1.5" fill="none"/>
+  <polygon points="250,110 390,250 250,390 110,250" stroke="#7B9669" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+
+  <!-- Center Core -->
+  <circle cx="250" cy="250" r="60" fill="#F4F6F2" stroke="#404E3B" stroke-width="2"/>
+  <circle cx="250" cy="250" r="45" fill="#BAC8B1" fill-opacity="0.3" stroke="#7B9669" stroke-width="1"/>
+  <circle cx="250" cy="250" r="12" fill="#404E3B"/>
+  <circle cx="250" cy="250" r="4" fill="#E6E6E6"/>
+</svg>

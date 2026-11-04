@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
+  <defs>
+    <radialGradient id="creatGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#BAC8B1" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#BAC8B1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="320" rx="28" fill="#F4F6F2"/>
+  <circle cx="160" cy="160" r="110" fill="url(#creatGlow)"/>
+  <circle cx="160" cy="160" r="95" stroke="#BAC8B1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <!-- Overlapping Triangles / Prism of Creativity -->
+  <polygon points="160,95 218,195 102,195" stroke="#7B9669" stroke-width="2" fill="#7B9669" fill-opacity="0.15"/>
+  <polygon points="160,225 102,125 218,125" stroke="#6C8480" stroke-width="2" fill="#6C8480" fill-opacity="0.15"/>
+  <circle cx="160" cy="160" r="14" fill="#404E3B"/>
+  <circle cx="160" cy="160" r="5" fill="#BAC8B1"/>
+  <!-- Sparkles around the hexagram / prism -->
+  <circle cx="160" cy="80" r="3" fill="#7B9669"/>
+  <circle cx="230" cy="160" r="3" fill="#6C8480"/>
+  <circle cx="160" cy="240" r="3" fill="#7B9669"/>
+  <circle cx="90" cy="160" r="3" fill="#6C8480"/>
+  <!-- Number Badge -->
+  <circle cx="60" cy="60" r="22" fill="#404E3B"/>
+  <text x="60" y="66" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="14" fill="#E6E6E6">03</text>
+</svg>

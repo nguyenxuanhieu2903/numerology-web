@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
+  <defs>
+    <radialGradient id="buildGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#BAC8B1" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#BAC8B1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="320" rx="28" fill="#F4F6F2"/>
+  <circle cx="160" cy="160" r="110" fill="url(#buildGlow)"/>
+  <circle cx="160" cy="160" r="95" stroke="#BAC8B1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <!-- Isometric Cube / Solid Foundation -->
+  <polygon points="160,105 215,137 160,169 105,137" fill="#BAC8B1" stroke="#404E3B" stroke-width="2"/>
+  <polygon points="105,137 160,169 160,233 105,201" fill="#7B9669" fill-opacity="0.75" stroke="#404E3B" stroke-width="2"/>
+  <polygon points="160,169 215,137 215,201 160,233" fill="#404E3B" stroke="#404E3B" stroke-width="2"/>
+  <!-- Center Stability Point -->
+  <circle cx="160" cy="169" r="6" fill="#E6E6E6" stroke="#404E3B" stroke-width="1.5"/>
+  <!-- Number Badge -->
+  <circle cx="60" cy="60" r="22" fill="#404E3B"/>
+  <text x="60" y="66" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="14" fill="#E6E6E6">04</text>
+</svg>

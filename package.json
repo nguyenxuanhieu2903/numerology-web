@@ -1,0 +1,29 @@
+{
+  "name": "numerology-inner-energy",
+  "version": "1.0.0",
+  "description": "NUMEROLOGY — Discover Your Inner Energy. A modern, bilingual personality exploration quiz.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:scoring": "node src/js/tests/scoring.test.js"
+  },
+  "keywords": [
+    "numerology",
+    "quiz",
+    "personality",
+    "jquery",
+    "vite",
+    "bilingual",
+    "mpa"
+  ],
+  "author": "Hieunx_2903",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "3.7.1"
+  },
+  "devDependencies": {
+    "vite": "^5.4.14"
+  }
+}

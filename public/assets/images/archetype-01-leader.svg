@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
+  <defs>
+    <radialGradient id="leadGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#BAC8B1" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#BAC8B1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="320" rx="28" fill="#F4F6F2"/>
+  <circle cx="160" cy="160" r="110" fill="url(#leadGlow)"/>
+  <circle cx="160" cy="160" r="95" stroke="#BAC8B1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <circle cx="160" cy="160" r="75" stroke="#7B9669" stroke-width="1.5"/>
+  <!-- North Star / Compass Ray -->
+  <path d="M160 80 L168 152 L240 160 L168 168 L160 240 L152 168 L80 160 L152 152 Z" fill="#7B9669" fill-opacity="0.85"/>
+  <polygon points="160,110 164,156 210,160 164,164 160,210 156,164 110,160 156,156" fill="#404E3B"/>
+  <circle cx="160" cy="160" r="16" fill="#F4F6F2" stroke="#404E3B" stroke-width="2"/>
+  <circle cx="160" cy="160" r="6" fill="#7B9669"/>
+  <!-- Number Badge -->
+  <circle cx="60" cy="60" r="22" fill="#404E3B"/>
+  <text x="60" y="66" text-anchor="middle" font-family="'Cinzel', 'Playfair Display', serif" font-weight="700" font-size="14" fill="#E6E6E6">01</text>
+</svg>
