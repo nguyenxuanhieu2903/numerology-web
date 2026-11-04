@@ -1,9 +1,10 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
-export default defineConfig({
-  // Relative base ensures full portability on GitHub Pages (/repository-name/) or any static host
-  base: './',
+export default defineConfig(({ mode }) => ({
+  // Base path for GitHub Pages deployment (https://nguyenxuanhieu2903.github.io/numerology-web/)
+  // Uses /numerology-web/ in production and / in development for seamless local DX
+  base: mode === 'production' ? '/numerology-web/' : '/',
   build: {
     rollupOptions: {
       input: {
@@ -20,5 +21,5 @@ export default defineConfig({
     port: 3000,
     open: true
   }
-});
+}));
 
