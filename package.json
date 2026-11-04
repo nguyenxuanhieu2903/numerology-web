@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:scoring": "node src/js/tests/scoring.test.js"
+    "test:scoring": "node src/js/tests/scoring.test.js",
+    "test:quiz": "node src/js/tests/quiz-engine.test.js",
+    "test": "npm run test:scoring && npm run test:quiz"
   },
   "keywords": [
     "numerology",
