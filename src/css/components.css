@@ -34,16 +34,16 @@
 }
 
 .btn-primary {
-  background-color: var(--color-primary-accent);
+  background-color: var(--color-accent-btn);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(123, 150, 105, 0.35);
+  box-shadow: 0 4px 14px rgba(82, 110, 67, 0.35);
   border: 1px solid transparent;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-accent-hover);
+  background-color: var(--color-accent-btn-hover);
   color: #FFFFFF;
-  box-shadow: 0 6px 20px rgba(123, 150, 105, 0.45);
+  box-shadow: 0 6px 20px rgba(82, 110, 67, 0.45);
   transform: translateY(-2px);
 }
 
@@ -259,3 +259,70 @@
 .toast-item svg {
   stroke: var(--color-mist-jade);
 }
+
+/* ==========================================================================
+   Modal Dialogs (Share Fallback)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(45, 55, 41, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.modal-card {
+  background-color: var(--color-surface-pure);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-mist-jade);
+  box-shadow: var(--shadow-elevated);
+  padding: var(--space-2xl) var(--space-xl);
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.modal-title {
+  font-size: 1.35rem;
+  color: var(--color-dark-jade);
+}
+
+.modal-desc {
+  font-size: 0.95rem;
+  color: var(--color-slate-jade);
+  margin-bottom: 0;
+}
+
+.modal-input-group {
+  display: flex;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.modal-input {
+  flex-grow: 1;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-mist-jade);
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--color-dark-jade);
+  background-color: var(--color-bg-subtle);
+}
+
+.modal-input:focus {
+  outline: 2px solid var(--color-primary-accent);
+  border-color: var(--color-primary-accent);
+}
+
+.modal-close-btn {
+  align-self: flex-end;
+}
+
+

@@ -23,6 +23,8 @@ function safeParse(raw, fallback = null) {
   }
 }
 
+const VALID_TYPES = ['01', '02', '03', '04'];
+
 export const Storage = {
   /**
    * Saves in-progress quiz state to sessionStorage.
@@ -37,13 +39,33 @@ export const Storage = {
   },
 
   /**
-   * Retrieves saved quiz state from sessionStorage.
+   * Retrieves and strictly validates saved quiz state from sessionStorage.
    * @returns {{ currentQuestionIndex: number, answers: Record<number, string> } | null}
    */
   getQuizState() {
     try {
       const raw = sessionStorage.getItem(STORAGE_KEYS.QUIZ_STATE);
-      return safeParse(raw, null);
+      const data = safeParse(raw, null);
+      if (!data || typeof data !== 'object') return null;
+
+      const idx = Number(data.currentQuestionIndex);
+      const validIndex = Number.isInteger(idx) && idx >= 0 && idx < 10 ? idx : 0;
+
+      const validAnswers = {};
+      if (data.answers && typeof data.answers === 'object') {
+        Object.keys(data.answers).forEach((k) => {
+          const numKey = Number(k);
+          const val = String(data.answers[k]).trim();
+          if (Number.isInteger(numKey) && numKey >= 1 && numKey <= 10 && VALID_TYPES.includes(val)) {
+            validAnswers[numKey] = val;
+          }
+        });
+      }
+
+      return {
+        currentQuestionIndex: validIndex,
+        answers: validAnswers
+      };
     } catch (e) {
       return null;
     }
@@ -71,17 +93,44 @@ export const Storage = {
   },
 
   /**
-   * Retrieves computed result from sessionStorage.
+   * Retrieves and strictly validates computed result from sessionStorage.
+   * Protects against DOM-based XSS and session poisoning.
    * @returns {Object | null}
    */
   getResult() {
     try {
       const raw = sessionStorage.getItem(STORAGE_KEYS.RESULT_DATA);
       const data = safeParse(raw, null);
-      if (data && data.isValid && data.dominantTypes && data.scores) {
-        return data;
+      if (!data || typeof data !== 'object' || data.isValid !== true) {
+        return null;
       }
-      return null;
+
+      if (!Array.isArray(data.dominantTypes) || data.dominantTypes.length === 0) {
+        return null;
+      }
+
+      // Ensure every dominant type is valid
+      const hasOnlyValidTypes = data.dominantTypes.every((t) => VALID_TYPES.includes(String(t).trim()));
+      if (!hasOnlyValidTypes) {
+        return null;
+      }
+
+      // Ensure scores object exists with non-negative numbers
+      if (!data.scores || typeof data.scores !== 'object') {
+        return null;
+      }
+
+      const validScores = {};
+      VALID_TYPES.forEach((k) => {
+        const val = Number(data.scores[k]);
+        validScores[k] = isNaN(val) || val < 0 ? 0 : val;
+      });
+
+      return {
+        ...data,
+        dominantTypes: data.dominantTypes.map((t) => String(t).trim()),
+        scores: validScores
+      };
     } catch (e) {
       return null;
     }
@@ -128,3 +177,4 @@ export const Storage = {
     } catch (e) {}
   }
 };
+

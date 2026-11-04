@@ -42,7 +42,25 @@ export function translateDOM(root = document) {
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
         el.setAttribute('placeholder', translated);
       } else {
-        el.textContent = translated;
+        // Defensive check: if element contains an SVG icon, do not overwrite child nodes
+        const hasSvgChild = el.querySelector('svg');
+        if (hasSvgChild) {
+          const textNode = Array.from(el.childNodes).find(
+            (node) => node.nodeType === 3 && node.nodeValue.trim().length > 0
+          );
+          if (textNode) {
+            textNode.nodeValue = ` ${translated} `;
+          } else {
+            const span = el.querySelector('span');
+            if (span) {
+              span.textContent = translated;
+            } else {
+              el.textContent = translated;
+            }
+          }
+        } else {
+          el.textContent = translated;
+        }
       }
     }
   });
@@ -93,3 +111,4 @@ export function initLanguage() {
     });
   });
 }
+

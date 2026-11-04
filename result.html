@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="siteTitle">Result — NUMEROLOGY</title>
+    <title data-i18n="resultSiteTitle">Result — NUMEROLOGY</title>
     <meta name="description" content="Khám phá bản đồ năng lượng nội tại cá nhân hóa của bạn trên Numerology." />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <!-- CSS Layers -->
     <link rel="stylesheet" href="./src/css/base.css" />
@@ -61,8 +63,8 @@
           <p class="empty-state-desc" data-i18n="emptyStateDesc">
             Có vẻ như bạn vừa truy cập trực tiếp vào trang kết quả mà chưa hoàn thành bài trắc nghiệm 10 câu hỏi. Hãy bắt đầu ngay để khám phá nguồn năng lượng độc bản của bạn!
           </p>
-          <a href="./quiz.html" class="btn btn-primary btn-lg" data-i18n="emptyStateCta">
-            Bắt Đầu Làm Bài Ngay
+          <a href="./quiz.html" class="btn btn-primary btn-lg">
+            <span data-i18n="emptyStateCta">Bắt Đầu Làm Bài Ngay</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
@@ -161,7 +163,7 @@
                     <span class="matrix-percentage-pill" id="matrix-pct-01">0%</span>
                   </div>
                 </div>
-                <div class="matrix-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="matrix-track" id="matrix-track-01" role="progressbar" aria-label="The Leader" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                   <div class="matrix-bar-fill matrix-bar-01" id="matrix-bar-01" style="width: 0%;"></div>
                 </div>
               </div>
@@ -175,7 +177,7 @@
                     <span class="matrix-percentage-pill" id="matrix-pct-02">0%</span>
                   </div>
                 </div>
-                <div class="matrix-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="matrix-track" id="matrix-track-02" role="progressbar" aria-label="The Harmonizer" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                   <div class="matrix-bar-fill matrix-bar-02" id="matrix-bar-02" style="width: 0%;"></div>
                 </div>
               </div>
@@ -189,7 +191,7 @@
                     <span class="matrix-percentage-pill" id="matrix-pct-03">0%</span>
                   </div>
                 </div>
-                <div class="matrix-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="matrix-track" id="matrix-track-03" role="progressbar" aria-label="The Creator" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                   <div class="matrix-bar-fill matrix-bar-03" id="matrix-bar-03" style="width: 0%;"></div>
                 </div>
               </div>
@@ -203,7 +205,7 @@
                     <span class="matrix-percentage-pill" id="matrix-pct-04">0%</span>
                   </div>
                 </div>
-                <div class="matrix-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="matrix-track" id="matrix-track-04" role="progressbar" aria-label="The Builder" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                   <div class="matrix-bar-fill matrix-bar-04" id="matrix-bar-04" style="width: 0%;"></div>
                 </div>
               </div>
@@ -231,6 +233,19 @@
               </svg>
               <span data-i18n="resultBtnRetake">Làm Lại Bài Trắc Nghiệm</span>
             </button>
+          </div>
+        </div>
+
+        <!-- Fallback Copy Modal (if automatic clipboard write is restricted) -->
+        <div id="copy-modal-overlay" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="copy-modal-title">
+          <div class="modal-card">
+            <h3 class="modal-title" id="copy-modal-title" data-i18n="copyModalTitle">Chia Sẻ Hồ Sơ Năng Lượng</h3>
+            <p class="modal-desc" data-i18n="copyModalDesc">Sao chép liên kết bên dưới để gửi cho bạn bè hoặc chia sẻ lên mạng xã hội:</p>
+            <div class="modal-input-group">
+              <input type="text" id="copy-modal-input" class="modal-input" readonly />
+              <button type="button" class="btn btn-primary btn-sm" id="btn-copy-modal-action">Copy</button>
+            </div>
+            <button type="button" class="btn btn-ghost btn-sm modal-close-btn" id="btn-copy-modal-close" data-i18n="copyModalClose">Đóng</button>
           </div>
         </div>
       </div>

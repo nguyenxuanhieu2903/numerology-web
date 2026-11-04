@@ -14,6 +14,7 @@ export function initQuizUI() {
   // Cache DOM elements
   const $questionStage = $('#question-stage');
   const $progressTrack = $('#quiz-progress-fill');
+  const $progressBarTrack = $('#quiz-progress-track');
   const $counterBadge = $('#quiz-counter-text');
   const $percentBadge = $('#quiz-percent-text');
   const $btnPrev = $('#btn-prev');
@@ -34,12 +35,15 @@ export function initQuizUI() {
 
     // Update Progress Bar & Counter
     $progressTrack.css('width', `${progressPercent}%`);
+    if ($progressBarTrack.length) {
+      $progressBarTrack.attr('aria-valuenow', progressPercent);
+    }
     $counterBadge.text(`${t('quizQuestionWord')} ${String(currentIndex + 1).padStart(2, '0')} ${t('quizOfWord')} ${String(total).padStart(2, '0')}`);
     $percentBadge.text(`${progressPercent}%`);
 
     // Prepare HTML content for the question stage
     const questionHtml = `
-      <div class="question-container">
+      <div class="question-container" tabindex="-1">
         <div class="question-header">
           <div class="question-tag">${t('quizQuestionWord')} ${String(currentIndex + 1).padStart(2, '0')}</div>
           <h2 class="question-title">${escapeHtml(q.title[lang] || q.title.vi)}</h2>
@@ -70,7 +74,9 @@ export function initQuizUI() {
 
     if (animate) {
       $questionStage.fadeOut(140, function () {
-        $questionStage.html(questionHtml).fadeIn(180);
+        $questionStage.html(questionHtml).fadeIn(180, function () {
+          $('.question-container').focus();
+        });
         bindOptionEvents();
       });
     } else {
@@ -83,16 +89,32 @@ export function initQuizUI() {
   }
 
   function bindOptionEvents() {
-    $('.option-card')
+    const $options = $('.option-card');
+
+    $options
       .on('click', function () {
         const type = $(this).attr('data-type');
         selectOption(type);
       })
       .on('keydown', function (e) {
+        const currentIndex = $options.index(this);
+
         if (e.key === ' ' || e.key === 'Enter') {
           e.preventDefault();
           const type = $(this).attr('data-type');
           selectOption(type);
+        } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          const nextIndex = (currentIndex + 1) % $options.length;
+          const $next = $options.eq(nextIndex);
+          $next.focus();
+          selectOption($next.attr('data-type'));
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prevIndex = (currentIndex - 1 + $options.length) % $options.length;
+          const $prev = $options.eq(prevIndex);
+          $prev.focus();
+          selectOption($prev.attr('data-type'));
         }
       });
   }
@@ -167,8 +189,12 @@ export function initQuizUI() {
   // Submit Button Click
   $btnSubmit.on('click', function (e) {
     e.preventDefault();
-    if (!engine.hasAnsweredCurrent() || !engine.isComplete()) {
+    if (!engine.hasAnsweredCurrent()) {
       $alertWarning.text(t('quizSelectWarning')).slideDown(200);
+      return;
+    }
+    if (!engine.isComplete()) {
+      $alertWarning.text(t('quizIncompleteWarning')).slideDown(200);
       return;
     }
 
@@ -190,3 +216,4 @@ export function initQuizUI() {
   // Initial render
   renderCurrentQuestion(false);
 }
+

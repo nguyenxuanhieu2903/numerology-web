@@ -61,20 +61,33 @@ export function calculateScores(answers) {
 }
 
 /**
+ * Helper to sanitize input scores object, ensuring all 4 archetypes have non-negative numbers.
+ */
+function sanitizeScores(scores) {
+  const sanitized = {};
+  VALID_ARCHETYPES.forEach((key) => {
+    const raw = scores && typeof scores === 'object' ? Number(scores[key]) : 0;
+    sanitized[key] = isNaN(raw) || raw < 0 ? 0 : raw;
+  });
+  return sanitized;
+}
+
+/**
  * Calculates integer percentages summing strictly to 100%
  * using the Largest Remainder Method (Hare-Niemeyer method).
  * @param {Record<string, number>} scores
  * @returns {Record<'01'|'02'|'03'|'04', number>}
  */
 export function calculatePercentages(scores) {
-  const total = VALID_ARCHETYPES.reduce((sum, key) => sum + (scores[key] || 0), 0);
+  const sanitized = sanitizeScores(scores);
+  const total = VALID_ARCHETYPES.reduce((sum, key) => sum + sanitized[key], 0);
 
   if (total === 0) {
     return { '01': 25, '02': 25, '03': 25, '04': 25 };
   }
 
   const items = VALID_ARCHETYPES.map((key) => {
-    const count = scores[key] || 0;
+    const count = sanitized[key];
     const exact = (count / total) * 100;
     const floor = Math.floor(exact);
     const remainder = exact - floor;
@@ -107,15 +120,16 @@ export function calculatePercentages(scores) {
  * @returns {Array<string>}
  */
 export function getDominantTypes(scores) {
+  const sanitized = sanitizeScores(scores);
   let maxScore = -1;
+
   VALID_ARCHETYPES.forEach((key) => {
-    const score = scores[key] || 0;
-    if (score > maxScore) {
-      maxScore = score;
+    if (sanitized[key] > maxScore) {
+      maxScore = sanitized[key];
     }
   });
 
-  return VALID_ARCHETYPES.filter((key) => scores[key] === maxScore);
+  return VALID_ARCHETYPES.filter((key) => sanitized[key] === maxScore);
 }
 
 /**
@@ -167,3 +181,4 @@ export function generateResult(answers) {
     createdAt: new Date().toISOString()
   };
 }
+

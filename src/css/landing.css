@@ -189,7 +189,7 @@
 }
 
 .archetype-card-num {
-  font-family: var(--font-display);
+  font-family: var(--font-numeral);
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-primary-accent);
@@ -248,7 +248,7 @@
 }
 
 .step-number {
-  font-family: var(--font-display);
+  font-family: var(--font-numeral);
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--color-primary-accent);
@@ -314,3 +314,4 @@
   opacity: 1;
   transform: translateY(0);
 }
+

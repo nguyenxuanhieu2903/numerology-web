@@ -18,9 +18,11 @@ export function initLandingUI() {
       $drawer.slideUp(200, function () {
         $drawer.removeClass('is-open');
       });
-      $toggleBtn.attr('aria-expanded', 'false');
+      $toggleBtn.attr('aria-expanded', 'false').focus();
     } else {
-      $drawer.hide().addClass('is-open').slideDown(220);
+      $drawer.hide().addClass('is-open').slideDown(220, function () {
+        $('.mobile-nav-link').first().focus();
+      });
       $toggleBtn.attr('aria-expanded', 'true');
     }
   });
@@ -29,8 +31,18 @@ export function initLandingUI() {
   $('.mobile-nav-link').on('click', function () {
     $drawer.slideUp(180, function () {
       $drawer.removeClass('is-open');
-      $toggleBtn.attr('aria-expanded', 'false');
+      $toggleBtn.attr('aria-expanded', 'false').focus();
     });
+  });
+
+  // Close drawer on Escape key
+  $(document).on('keydown', function (e) {
+    if (e.key === 'Escape' && $drawer.hasClass('is-open')) {
+      $drawer.slideUp(180, function () {
+        $drawer.removeClass('is-open');
+        $toggleBtn.attr('aria-expanded', 'false').focus();
+      });
+    }
   });
 
   // 2. Sticky Header Elevation on Scroll
@@ -92,3 +104,4 @@ function initScrollReveal() {
     checkReveal();
   }
 }
+

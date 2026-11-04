@@ -122,7 +122,7 @@
 }
 
 .result-number-tag {
-  font-family: var(--font-display);
+  font-family: var(--font-numeral);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -340,3 +340,4 @@
   flex-wrap: wrap;
   padding: var(--space-xl) 0;
 }
+

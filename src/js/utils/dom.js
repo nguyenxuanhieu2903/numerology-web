@@ -104,3 +104,46 @@ export function smoothScrollTo(targetSelector) {
     $('html, body').animate({ scrollTop: targetTop }, 500);
   }
 }
+
+/**
+ * Displays an accessible modal dialog allowing the user to manually copy text.
+ * @param {string} text
+ */
+export function showManualCopyModal(text) {
+  const $overlay = $('#copy-modal-overlay');
+  const $input = $('#copy-modal-input');
+  const $actionBtn = $('#btn-copy-modal-action');
+  const $closeBtn = $('#btn-copy-modal-close');
+
+  if (!$overlay.length) return;
+
+  $input.val(text);
+  $overlay.fadeIn(200);
+  $input.focus().select();
+
+  $actionBtn.off('click').on('click', function () {
+    $input.focus().select();
+    try {
+      document.execCommand('copy');
+      $(this).text('Copied!');
+      setTimeout(() => { $(this).text('Copy'); }, 2000);
+    } catch (e) {}
+  });
+
+  $closeBtn.off('click').on('click', function () {
+    $overlay.fadeOut(160);
+  });
+
+  $overlay.off('click').on('click', function (e) {
+    if (e.target === this) {
+      $overlay.fadeOut(160);
+    }
+  });
+
+  $(document).off('keydown.copymodal').on('keydown.copymodal', function (e) {
+    if (e.key === 'Escape' && $overlay.is(':visible')) {
+      $overlay.fadeOut(160);
+    }
+  });
+}
+

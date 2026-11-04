@@ -9,6 +9,8 @@ export const translations = {
     brandName: "NUMEROLOGY",
     brandTagline: "Discover Your Inner Energy",
     siteTitle: "NUMEROLOGY — Khám Phá Năng Lượng Nội Tại",
+    quizSiteTitle: "Trắc Nghiệm — NUMEROLOGY",
+    resultSiteTitle: "Kết Quả — NUMEROLOGY",
     metaDescription: "Khám phá bản thân qua 10 câu hỏi trắc nghiệm năng lượng thần số học hiện đại. Nhận hồ sơ tính cách, điểm mạnh và định hướng phát triển cá nhân hóa.",
 
     // Navigation
@@ -34,12 +36,16 @@ export const translations = {
     archetypesSectionSubtitle: "Mỗi người chúng ta là một vũ trụ thu nhỏ, nơi bốn dòng năng lượng cùng tồn tại và định hình nhân sinh quan của bạn.",
     archetype01Name: "The Leader",
     archetype01Desc: "Khát vọng tiên phong, quyết đoán, bản lĩnh làm chủ vận mệnh và định hướng tập thể.",
+    archetype01Keywords: "Quyết Đoán • Tiên Phong",
     archetype02Name: "The Harmonizer",
     archetype02Desc: "Đồng cảm sâu sắc, khả năng lắng nghe và kết nối trái tim để tạo dựng bình yên.",
+    archetype02Keywords: "Thấu Cảm • Hòa Hợp",
     archetype03Name: "The Creator",
     archetype03Desc: "Trí tưởng tượng bất tận, nguồn cảm hứng dồi dào và khát khao biểu đạt độc bản.",
+    archetype03Keywords: "Sáng Tạo • Linh Hoạt",
     archetype04Name: "The Builder",
     archetype04Desc: "Kỷ luật sắt đá, thực tế, kiên nhẫn xây dựng những nền móng vững bền cùng thời gian.",
+    archetype04Keywords: "Kỷ Luật • Vững Chãi",
 
     // How It Works Section
     howSectionBadge: "Quy trình đơn giản",
@@ -74,11 +80,14 @@ export const translations = {
     quizBtnNext: "Câu Tiếp Theo",
     quizBtnSubmit: "Xem Kết Quả Ngay",
     quizSelectWarning: "Vui lòng chọn một đáp án phù hợp trước khi tiếp tục.",
+    quizIncompleteWarning: "Bạn chưa hoàn thành đủ 10 câu hỏi. Vui lòng quay lại kiểm tra các câu chưa chọn.",
     quizConfirmSubmit: "Bạn đã trả lời đủ 10 câu hỏi. Hệ thống sẽ phân tích năng lượng của bạn ngay bây giờ!",
 
     // Result Page
     resultBackHome: "Về Trang Chủ",
     resultPageBadge: "Hồ Sơ Năng Lượng Độc Bản",
+    resultSharedBadge: "Hồ Sơ Năng Lượng Được Chia Sẻ",
+    resultSharedNotice: "Bạn đang xem bản đồ năng lượng do một người bạn chia sẻ. Hãy làm bài trắc nghiệm để khám phá nhóm năng lượng của chính bạn!",
     resultPageTitle: "Năng Lượng Cốt Lõi Của Bạn",
     resultTieBadge: "Kết Quả Đồng Hạng Năng Lượng Đặc Biệt",
     resultTieNotice: "Các lựa chọn của bạn phản ánh sự giao thoa hài hòa giữa nhiều trường năng lượng chiếm ưu thế tương đương.",
@@ -94,6 +103,9 @@ export const translations = {
     resultShareText: "Tôi vừa hoàn thành trắc nghiệm Numerology và nhóm năng lượng chiếm ưu thế của tôi là: ",
     resultToastCopied: "Đã sao chép liên kết kết quả vào bộ nhớ tạm!",
     resultToastCopyFail: "Không thể sao chép tự động. Hãy sao chép URL trên trình duyệt để chia sẻ.",
+    copyModalTitle: "Chia Sẻ Hồ Sơ Năng Lượng",
+    copyModalDesc: "Sao chép liên kết bên dưới để gửi cho bạn bè hoặc chia sẻ lên mạng xã hội:",
+    copyModalClose: "Đóng",
 
     // Empty / Direct Access State on Result Page
     emptyStateTitle: "Chưa Có Dữ Liệu Kết Quả",
@@ -106,6 +118,8 @@ export const translations = {
     brandName: "NUMEROLOGY",
     brandTagline: "Discover Your Inner Energy",
     siteTitle: "NUMEROLOGY — Discover Your Inner Energy",
+    quizSiteTitle: "Quiz — NUMEROLOGY",
+    resultSiteTitle: "Result — NUMEROLOGY",
     metaDescription: "Explore yourself through 10 intuitive questions inspired by modern numerological energy currents. Receive personalized strengths, growth paths, and full energy distribution.",
 
     // Navigation
@@ -131,12 +145,16 @@ export const translations = {
     archetypesSectionSubtitle: "Each human is a miniature cosmos where four primal currents coalesce to shape perception, leadership, and connection.",
     archetype01Name: "The Leader",
     archetype01Desc: "Pioneering drive, decisive will, bold autonomy, and natural stewardship.",
+    archetype01Keywords: "Decisive • Pioneering",
     archetype02Name: "The Harmonizer",
     archetype02Desc: "Profound empathy, active listening, and the graceful art of human connection.",
+    archetype02Keywords: "Empathetic • Harmonious",
     archetype03Name: "The Creator",
     archetype03Desc: "Unbounded imagination, vibrant storytelling, and spontaneous originality.",
+    archetype03Keywords: "Creative • Adaptable",
     archetype04Name: "The Builder",
     archetype04Desc: "Iron discipline, grounded pragmatism, and building enduring foundations.",
+    archetype04Keywords: "Disciplined • Grounded",
 
     // How It Works Section
     howSectionBadge: "Seamless Journey",
@@ -171,11 +189,14 @@ export const translations = {
     quizBtnNext: "Next Question",
     quizBtnSubmit: "Reveal My Result",
     quizSelectWarning: "Please select an answer before continuing to the next prompt.",
+    quizIncompleteWarning: "You have not completed all 10 questions. Please review and answer all prompts.",
     quizConfirmSubmit: "You have completed all 10 questions. Your energy blueprint is ready to be unveiled!",
 
     // Result Page
     resultBackHome: "Back to Home",
     resultPageBadge: "Authentic Energy Blueprint",
+    resultSharedBadge: "Shared Energy Blueprint",
+    resultSharedNotice: "You are exploring an energy blueprint shared by a friend. Take the quiz to unveil your own archetype!",
     resultPageTitle: "Your Inner Energy Resonance",
     resultTieBadge: "Special Harmonic Tie Result",
     resultTieNotice: "Your responses reflect a rare, harmonious convergence of multiple equally dominant energy currents.",
@@ -191,6 +212,9 @@ export const translations = {
     resultShareText: "I just completed the Numerology Energy Quiz and my dominant archetype is: ",
     resultToastCopied: "Result link successfully copied to your clipboard!",
     resultToastCopyFail: "Could not copy automatically. Please copy the URL from your browser bar.",
+    copyModalTitle: "Share Your Energy Blueprint",
+    copyModalDesc: "Copy the link below to share with friends or on social networks:",
+    copyModalClose: "Close",
 
     // Empty / Direct Access State on Result Page
     emptyStateTitle: "No Quiz Result Found",
@@ -198,3 +222,4 @@ export const translations = {
     emptyStateCta: "Take the Quiz Now"
   }
 };
+

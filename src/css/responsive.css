@@ -72,12 +72,27 @@
     display: none;
   }
 
+  /* Hide header CTA on mobile to avoid horizontal toolbar overflow (CTA is in Hero and Drawer) */
+  .header-actions .btn {
+    display: none;
+  }
+
   .mobile-menu-toggle {
     display: flex;
   }
 
   .header-inner {
     height: 64px;
+    gap: var(--space-xs);
+  }
+
+  .brand-title {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-tagline {
+    font-size: 0.65rem;
   }
 
   .mobile-drawer {
@@ -187,3 +202,4 @@
     transition: none !important;
   }
 }
+

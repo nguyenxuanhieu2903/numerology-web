@@ -6,12 +6,64 @@
 
 import $ from 'jquery';
 import { Storage } from '../core/storage.js';
-import { archetypes } from '../data/results.js';
+import { archetypes, tieCombinations } from '../data/results.js';
+import { calculatePercentages } from '../core/scoring.js';
 import { getCurrentLanguage, t } from '../utils/language.js';
-import { showToast, copyToClipboard, escapeHtml } from '../utils/dom.js';
+import { showToast, copyToClipboard, showManualCopyModal, escapeHtml } from '../utils/dom.js';
+
+/**
+ * Resolves result either from session storage or URL query params (for shared links).
+ */
+function resolveResultData() {
+  const sessionResult = Storage.getResult();
+  if (sessionResult && sessionResult.isValid) {
+    return sessionResult;
+  }
+
+  // Attempt URL query fallback for shared links (?type=01 or ?type=01-03)
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const typeParam = params.get('type') || params.get('dominant');
+    if (typeParam) {
+      const parts = typeParam.split('-').map((s) => s.trim()).filter((s) => archetypes[s]);
+      if (parts.length >= 1 && parts.length <= 4) {
+        const isTie = parts.length > 1;
+        const tieKey = parts.slice().sort().join('-');
+        const tieData = isTie ? tieCombinations[tieKey] || null : null;
+        const primaryArchetype = archetypes[parts[0]];
+        const dominantArchetypes = parts.map((id) => archetypes[id]);
+
+        // Synthesize display proportions for shared view
+        const baseScore = Math.floor(10 / parts.length);
+        const remainder = 10 % parts.length;
+        const scores = { '01': 0, '02': 0, '03': 0, '04': 0 };
+        parts.forEach((p, idx) => {
+          scores[p] = baseScore + (idx < remainder ? 1 : 0);
+        });
+        const percentages = calculatePercentages(scores);
+
+        return {
+          isValid: true,
+          isSharedView: true,
+          dominantTypes: parts,
+          isTie,
+          tieKey,
+          tieData,
+          primaryArchetype,
+          dominantArchetypes,
+          scores,
+          percentages,
+          totalQuestions: 10
+        };
+      }
+    }
+  } catch (e) {}
+
+  return null;
+}
 
 export function initResultUI() {
-  const resultData = Storage.getResult();
+  const resultData = resolveResultData();
 
   const $emptyState = $('#result-empty-state');
   const $resultContent = $('#result-content-container');
@@ -49,7 +101,23 @@ export function initResultUI() {
 
 function renderResult(result) {
   const lang = getCurrentLanguage();
-  const { dominantTypes, isTie, tieData, primaryArchetype, percentages, scores } = result;
+  const { dominantTypes, isTie, tieData, primaryArchetype, percentages, scores, isSharedView } = result;
+
+  // 0. Shared View Notice
+  if (isSharedView) {
+    if (!$('#shared-view-banner').length) {
+      $('#result-content-container').prepend(`
+        <div id="shared-view-banner" class="alert-banner alert-warning" style="background-color: var(--color-bg-subtle); border: 1.5px solid var(--color-primary-accent); color: var(--color-dark-jade); margin-bottom: var(--space-xl);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 20px; height: 20px;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span data-i18n="resultSharedNotice">${escapeHtml(t('resultSharedNotice'))}</span>
+        </div>
+      `);
+    }
+  }
 
   // 1. Tie Banner
   const $tieContainer = $('#result-tie-container');
@@ -139,6 +207,11 @@ function renderEnergyMatrix(scores, percentages, lang) {
     $(`#matrix-score-${id}`).text(`${score} / 10`);
     $(`#matrix-pct-${id}`).text(`${pct}%`);
 
+    // Update accessible progressbar attributes
+    $(`#matrix-track-${id}`)
+      .attr('aria-valuenow', pct)
+      .attr('aria-label', `${name}: ${pct}%`);
+
     // Animate bar width with jQuery
     setTimeout(() => {
       $(`#matrix-bar-${id}`).css('width', `${pct}%`);
@@ -154,7 +227,7 @@ async function handleShare(result) {
 
   const shareTitle = t('resultShareTitle');
   const shareText = `${t('resultShareText')} ${dominantName}!`;
-  const shareUrl = window.location.href;
+  const shareUrl = `${window.location.origin}${window.location.pathname}?type=${result.dominantTypes.join('-')}`;
 
   if (navigator.share) {
     try {
@@ -178,6 +251,8 @@ async function handleShare(result) {
   if (copied) {
     showToast(t('resultToastCopied'), 'success');
   } else {
-    showToast(t('resultToastCopyFail'), 'warning');
+    // Ultimate accessible fallback: Display manual copy modal
+    showManualCopyModal(shareUrl);
   }
 }
+
