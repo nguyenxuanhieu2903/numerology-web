@@ -238,9 +238,31 @@
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--space-3xl);
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
   margin-bottom: var(--space-3xl);
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-3xl);
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
 }
 
 .footer-brand .brand-title {

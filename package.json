@@ -10,7 +10,8 @@
     "test:scoring": "node src/js/tests/scoring.test.js",
     "test:quiz": "node src/js/tests/quiz-engine.test.js",
     "test:qa": "node src/js/tests/qa-audit.test.js",
-    "test": "npm run test:scoring && npm run test:quiz && npm run test:qa"
+    "test:responsive": "node src/js/tests/responsive-regression.test.js",
+    "test": "npm run test:scoring && npm run test:quiz && npm run test:qa && npm run test:responsive"
   },
   "keywords": [
     "numerology",

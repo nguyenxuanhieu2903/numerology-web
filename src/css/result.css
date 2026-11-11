@@ -81,14 +81,31 @@
 /* Hero Dossier Card */
 .result-hero-card {
   background-color: var(--color-surface-pure);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   border: 1px solid rgba(186, 200, 177, 0.7);
   box-shadow: var(--shadow-card);
-  padding: var(--space-3xl);
+  padding: var(--space-xl) var(--space-md);
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: var(--space-3xl);
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
   align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .result-hero-card {
+    padding: var(--space-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .result-hero-card {
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-3xl);
+    padding: var(--space-3xl);
+    text-align: left;
+    border-radius: var(--radius-xl);
+  }
 }
 
 .result-visual-col {
@@ -169,8 +186,15 @@
 /* 3-Column Narrative Section */
 .result-narrative-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 1024px) {
+  .result-narrative-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
 }
 
 .narrative-card {
@@ -235,10 +259,17 @@
 /* Energy Distribution Matrix */
 .matrix-card {
   background-color: var(--color-surface-pure);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   border: 1px solid rgba(186, 200, 177, 0.7);
   box-shadow: var(--shadow-card);
-  padding: var(--space-2xl) var(--space-3xl);
+  padding: var(--space-xl) var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .matrix-card {
+    padding: var(--space-2xl) var(--space-3xl);
+    border-radius: var(--radius-xl);
+  }
 }
 
 .matrix-header {
@@ -337,10 +368,29 @@
 /* Result Action Bar */
 .result-actions-bar {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--space-md);
+  align-items: stretch;
   padding: var(--space-xl) 0;
+}
+
+.result-actions-bar .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .result-actions-bar {
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+
+  .result-actions-bar .btn {
+    width: auto;
+  }
 }
 

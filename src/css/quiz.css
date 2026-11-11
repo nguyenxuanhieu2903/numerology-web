@@ -12,12 +12,19 @@
 
 .quiz-card {
   background-color: var(--color-surface-pure);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   border: 1px solid rgba(186, 200, 177, 0.7);
   box-shadow: var(--shadow-card);
-  padding: var(--space-2xl) var(--space-2xl);
+  padding: var(--space-lg) var(--space-md);
   position: relative;
   overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .quiz-card {
+    padding: var(--space-2xl) var(--space-2xl);
+    border-radius: var(--radius-xl);
+  }
 }
 
 /* Quiz Top Nav & Progress */
@@ -188,16 +195,41 @@
 /* Quiz Controls / Buttons */
 .quiz-controls {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column-reverse;
+  gap: var(--space-md);
+  align-items: stretch;
   padding-top: var(--space-xl);
   border-top: 1px solid rgba(186, 200, 177, 0.45);
 }
 
 .quiz-controls-right {
   display: flex;
-  align-items: center;
-  gap: var(--space-md);
+  flex-direction: column;
+  width: 100%;
+  gap: var(--space-sm);
+}
+
+.quiz-controls-right .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .quiz-controls {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .quiz-controls-right {
+    flex-direction: row;
+    width: auto;
+    gap: var(--space-md);
+  }
+
+  .quiz-controls-right .btn {
+    width: auto;
+  }
 }
 
 /* Transition Animations between Questions (jQuery controlled) */
