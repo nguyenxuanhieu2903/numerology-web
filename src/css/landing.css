@@ -70,7 +70,7 @@
   gap: var(--space-xs);
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--color-slate-jade);
+  color: var(--color-text-secondary);
 }
 
 .stat-item svg {
@@ -97,7 +97,24 @@
   justify-content: center;
 }
 
+.hero-mandala-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88%;
+  height: 88%;
+  background: radial-gradient(circle, rgba(123, 150, 105, 0.22) 0%, rgba(186, 200, 177, 0.08) 50%, transparent 72%);
+  border-radius: 50%;
+  filter: blur(14px);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .hero-mandala-img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: auto;
   filter: drop-shadow(0 12px 30px rgba(64, 78, 59, 0.12));
@@ -129,7 +146,7 @@
 
 .section-subtitle {
   font-size: 1.05rem;
-  color: var(--color-slate-jade);
+  color: var(--color-text-secondary);
   line-height: 1.6;
 }
 
@@ -288,7 +305,7 @@
 .disclaimer-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-slate-jade);
+  color: var(--color-text-secondary);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: var(--space-xs);

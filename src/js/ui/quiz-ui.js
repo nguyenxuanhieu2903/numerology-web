@@ -54,10 +54,11 @@ export function initQuizUI() {
           ${q.options
             .map((opt, index) => {
               const isSelected = selectedOption === opt.type;
+              const isTabFocusable = selectedOption ? isSelected : index === 0;
               return `
                 <div class="option-card ${isSelected ? 'is-selected' : ''}" 
                      role="radio" 
-                     tabindex="0" 
+                     tabindex="${isTabFocusable ? '0' : '-1'}" 
                      data-type="${opt.type}" 
                      aria-checked="${isSelected ? 'true' : 'false'}">
                   <div class="option-radio-indicator">
@@ -123,9 +124,9 @@ export function initQuizUI() {
     engine.selectOption(type);
 
     // Update option card visual state with jQuery
-    $('.option-card').removeClass('is-selected').attr('aria-checked', 'false');
+    $('.option-card').removeClass('is-selected').attr('aria-checked', 'false').attr('tabindex', '-1');
     const $target = $(`.option-card[data-type="${type}"]`);
-    $target.addClass('is-selected').attr('aria-checked', 'true');
+    $target.addClass('is-selected').attr('aria-checked', 'true').attr('tabindex', '0');
 
     // Hide warning if visible
     $alertWarning.slideUp(180);

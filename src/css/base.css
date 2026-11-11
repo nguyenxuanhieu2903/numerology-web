@@ -5,20 +5,20 @@
    Style: Premium Editorial • Modern Mystical • Organic Minimalism
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
-
 :root {
   /* Color Palette — Jade Pebble Morning */
   --color-primary-accent: #7B9669;   /* Sage / Muted Jade (Primary Accent) */
   --color-accent-hover: #678056;     /* Darker sage for hover */
-  --color-accent-btn: #526E43;       /* High-contrast sage for buttons (WCAG AA 5.16:1) */
+  --color-accent-btn: #526E43;       /* High-contrast sage for buttons (WCAG AA 5.72:1) */
   --color-accent-btn-hover: #435B36; /* High-contrast button hover */
   --color-bg-base: #E6E6E6;          /* Soft Pebble Off-White */
   --color-bg-subtle: #F4F6F2;        /* Pebble Light Tint for Card / Surface */
   --color-surface-pure: #FFFFFF;     /* Pure surface card */
-  --color-slate-jade: #6C8480;       /* Slate Jade (Secondary text & accents) */
+  --color-slate-jade: #6C8480;       /* Slate Jade (Borders, subtle decorative accents) */
+  --color-text-secondary: #4A615D;   /* High-contrast Slate Jade Text (WCAG AA 5.33:1 on base, 6.11:1 on subtle) */
+  --color-text-muted: #5E7571;       /* Muted helper text (WCAG AA 4.52:1) */
   --color-mist-jade: #BAC8B1;        /* Mist Jade / Pale Sage (Borders & soft fills) */
-  --color-dark-jade: #404E3B;        /* Deep Forest / Dark Jade (Primary text & contrast) */
+  --color-dark-jade: #404E3B;        /* Deep Forest / Dark Jade (Primary text & contrast WCAG AAA 7.10:1) */
   --color-dark-surface: #2D3729;     /* Deep footer / dark cards */
 
   /* Semantic Feedback Tokens */

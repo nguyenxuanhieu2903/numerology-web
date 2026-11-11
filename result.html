@@ -8,6 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" />
 
     <!-- CSS Layers -->
     <link rel="stylesheet" href="./src/css/base.css" />
@@ -40,7 +41,7 @@
             <button type="button" class="lang-btn is-active" data-lang="vi" aria-label="Tiếng Việt">VI</button>
             <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
           </div>
-          <a href="./index.html" class="btn btn-outline btn-sm" data-i18n="resultBackHome">
+          <a href="./index.html" class="btn btn-outline btn-sm btn-header-home" data-i18n="resultBackHome">
             Về Trang Chủ
           </a>
         </div>
@@ -243,7 +244,7 @@
             <p class="modal-desc" data-i18n="copyModalDesc">Sao chép liên kết bên dưới để gửi cho bạn bè hoặc chia sẻ lên mạng xã hội:</p>
             <div class="modal-input-group">
               <input type="text" id="copy-modal-input" class="modal-input" readonly />
-              <button type="button" class="btn btn-primary btn-sm" id="btn-copy-modal-action">Copy</button>
+              <button type="button" class="btn btn-primary btn-sm" id="btn-copy-modal-action" data-i18n="copyModalAction">Sao chép</button>
             </div>
             <button type="button" class="btn btn-ghost btn-sm modal-close-btn" id="btn-copy-modal-close" data-i18n="copyModalClose">Đóng</button>
           </div>

@@ -72,9 +72,16 @@
     display: none;
   }
 
-  /* Hide header CTA on mobile to avoid horizontal toolbar overflow (CTA is in Hero and Drawer) */
+  /* Hide header CTA on mobile landing, but preserve compact home button on quiz and result */
   .header-actions .btn {
     display: none;
+  }
+
+  .header-actions .btn-header-home {
+    display: inline-flex;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    min-height: 36px;
   }
 
   .mobile-menu-toggle {
@@ -111,6 +118,13 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-sm);
+  }
+
+  .hero-stats .stat-divider {
+    width: 48px;
+    height: 1px;
+    background-color: rgba(186, 200, 177, 0.6);
+    margin: var(--space-2xs) 0;
   }
 
   .archetypes-grid {
@@ -175,6 +189,42 @@
 
   .result-actions-bar .btn {
     width: 100%;
+  }
+}
+
+/* Small Mobile Viewports (<= 480px: 320px, 375px, 390px, 430px) */
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-sm);
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .archetype-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .step-card {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .disclaimer-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .matrix-row-meta {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .matrix-row-stats {
+    width: 100%;
+    justify-content: flex-end;
   }
 }
 

@@ -4,6 +4,7 @@
  */
 
 import $ from 'jquery';
+import { t } from './language.js';
 
 /**
  * Displays a non-intrusive floating toast notification.
@@ -125,8 +126,8 @@ export function showManualCopyModal(text) {
     $input.focus().select();
     try {
       document.execCommand('copy');
-      $(this).text('Copied!');
-      setTimeout(() => { $(this).text('Copy'); }, 2000);
+      $(this).text(t('copyModalCopied'));
+      setTimeout(() => { $(this).text(t('copyModalAction')); }, 2000);
     } catch (e) {}
   });
 

@@ -178,7 +178,7 @@
   align-items: center;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-slate-jade);
+  color: var(--color-text-secondary);
 }
 
 .progress-track {
@@ -295,7 +295,7 @@
 
 .modal-desc {
   font-size: 0.95rem;
-  color: var(--color-slate-jade);
+  color: var(--color-text-secondary);
   margin-bottom: 0;
 }
 

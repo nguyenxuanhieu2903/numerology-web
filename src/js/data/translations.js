@@ -106,6 +106,8 @@ export const translations = {
     copyModalTitle: "Chia Sẻ Hồ Sơ Năng Lượng",
     copyModalDesc: "Sao chép liên kết bên dưới để gửi cho bạn bè hoặc chia sẻ lên mạng xã hội:",
     copyModalClose: "Đóng",
+    copyModalAction: "Sao chép",
+    copyModalCopied: "Đã sao chép!",
 
     // Empty / Direct Access State on Result Page
     emptyStateTitle: "Chưa Có Dữ Liệu Kết Quả",
@@ -215,6 +217,8 @@ export const translations = {
     copyModalTitle: "Share Your Energy Blueprint",
     copyModalDesc: "Copy the link below to share with friends or on social networks:",
     copyModalClose: "Close",
+    copyModalAction: "Copy",
+    copyModalCopied: "Copied!",
 
     // Empty / Direct Access State on Result Page
     emptyStateTitle: "No Quiz Result Found",

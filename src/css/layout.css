@@ -87,7 +87,7 @@
 .brand-tagline {
   font-size: 0.72rem;
   letter-spacing: 0.05em;
-  color: var(--color-slate-jade);
+  color: var(--color-text-secondary);
   text-transform: uppercase;
 }
 
